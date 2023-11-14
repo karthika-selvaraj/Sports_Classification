@@ -13,6 +13,7 @@ list_of_files = [
     f"src/{project_name}/__init__.py", ## Basically this src folder will have our project. this src folder, will contain local package so that's why we initiate constructer __init__.py
     f"src/{project_name}/components/__init__.py", ## this components is going to be an another loacl package
     f"src/{project_name}/utils/__init__.py",
+    f"src/{project_name}/utils/common.py",
     f"src/{project_name}/config/__init__.py",
     f"src/{project_name}/config/configuration.py",
     f"src/{project_name}/pipeline/__init__.py",
