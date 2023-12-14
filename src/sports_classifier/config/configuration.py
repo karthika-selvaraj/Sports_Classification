@@ -1,10 +1,12 @@
 from sports_classifier.constants import *
 import os
+from pathlib import Path
 from sports_classifier.utils.common import read_yaml, create_directories
 from sports_classifier.entity.config_entity import (DataIngestionConfig,
                                                     PrepareBaseModelConfig,
                                                     PrepareCallbacksConfig,
-                                                    PrepareTrainingConfig)
+                                                    PrepareTrainingConfig,
+                                                    EvaluationConfig)
 
 # Configuration Manager
 class ConfigurationManager:
@@ -86,3 +88,14 @@ class ConfigurationManager:
         )
 
         return training_config
+
+
+    def get_validation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+                path_of_model = Path("artifacts/training/model.h5"),
+                training_data = Path("artifacts/data_ingestion/trainData/"),
+                all_params = self.params,
+                params_image_size = self.params.IMAGE_SIZE,
+                params_batch_size = self.params.BATCH_SIZE
+        )
+        return eval_config 
